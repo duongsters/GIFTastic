@@ -12,8 +12,9 @@ $(document).ready(function(){
 
 
         //renderButtons is a function that is made to run when the user inputs something in the search bar, this function will render out the gifs based on the user choice
+        //this function is also responsible for re-rendering the HTML button clicks and creating new button gifs
         function renderButtons() {
-            //use the jquery method to point out the specific ID 'preloaded-btns' variable that contains the inital gifs set within the buttons preloaded as the browser initally runs
+            //use the jquery method to point out the specific ID 'preloaded-btns' variable that contains the initial gifs set within the buttons preloaded as the browser initally runs
             //by emptying it out, the user is able input new buttons that will render out the gif animations correlated to their text description within the search bar
             $("#preloaded-btns").empty();
             //created a for loop  that has the parameters of running through the entire array index 'preloadedGifs', starting at preloadedGifs[0], with an increement count of +1 running through the index array
@@ -37,7 +38,7 @@ $(document).ready(function(){
         $("searchBar-input").val("");
 
 
-        //this jquery handler click call out event on line 40 will make the function that handles events when the user button clicks on the preset buttons provided
+        //this jquery event listener will track the clicks pressed on button tag 'submit' within the index.html file,
         $("#user-input").on("click", function(){
             //line 42 is created within this function and stops the user from clicking the submit button more than once than it was made to function
             event.preventDefault();
@@ -62,8 +63,8 @@ $(document).ready(function(){
         //and be placed in my div class 'gifs-appear-here" portion within the index.html file...which should output within the bottom portion of the browser page
         $(document).on("click", ".newChoiceBtn", function(event){
             
-            var userSubmit = $(this).attr("data-name");
-            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userSubmit + "&limit=10&api_key=" + apiKey;
+            var userChoice = $(this).attr("data-name");
+            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userChoice + "&limit=10&api_key=" + apiKey;
          
             $.ajax({
                 url: queryURL,
@@ -73,18 +74,28 @@ $(document).ready(function(){
                 
                 console.log(dynamicListArr);
 
-                for (var j = 0; response.data.length; j++) {
+                for (var j = 0; j < response.data.length; j++) {
 
-                    var gifRatings = response.data[j].rating;
-
-                $("#gifs-appear-here").append("<div class='dynamicContainer'><span class='dynamicTag'>Rating: " + gifRatings + "</span><div class='dynamicGIFContainer'><img class='gifDynamicResults img-responsive center-block'" + "data-still='" + response.data[j].images.downsized_still.url + "'" + "data-animate'" + response.data[j].images.downsized.url + "'" + "src'" + response.data[j].images.downsized_still.url + "'></div>");
-                    gifOutputResults.push(response.data[j].images.downsized.url);
-                    
-                    console.log(response.data[j].rating);
+                     var gifRatings = response.data[j].rating.toUpperCase();
+                //this jQuery method will dynamically create 
+                $("#gifs-appear-here").prepend("<div class='dynamicContainer'><span class='dynamicTag'>Rating: " + gifRatings + "</span><div class='dynamicGIFContainer'><img class='gifDynamicResults img-responsive center-block'" + "data-still='" + response.data[j].images.downsized_still.url + "'" + "data-animate='" + response.data[j].images.downsized.url + "'" + "data-state='still'" + "src='" + response.data[j].images.downsized_still.url + "'></div></div>");
+                   
+                        gifOutputResults.push(response.data[j].images.downsized.url);
+                        console.log(response.data[j].rating);
                 }
-
+                //created this on click event handler that handles events that gives us permission to get or set new values/attributes on the index.html file
                 $(".gifDynamicResults").on("click", function(){
-                    
+
+                    var giphy = $(this).attr("data-state")
+
+                        if(giphy === "still") {
+                            $(this).attr("src", $(this).attr("data-animate"));
+                            $(this).attr("data-state", "animate");
+                        }
+                        else {
+                            $(this).attr("src", $(this).attr("data-still"));
+                            $(this).attr("data-state", "still");
+                        }
                 });
             });
         });
