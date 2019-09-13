@@ -1,0 +1,41 @@
+
+body{
+  
+
+    background: #70bcff;
+  
+}
+#mainContainer	{
+	width: 65%;
+	margin: auto;
+    text-align: center;
+}
+
+#user-input.btn-success {
+    position: relative;
+	padding: 10px 150px 10px 150px;
+    display: inline-block;
+	border-radius: 20px;
+    font-size: 50px;
+    width: 40%;
+margin-left: 30%;
+margin-right: 30%;
+}
+
+.btn-danger {
+    border-radius:5px;
+    width:150px;
+  
+
+}
+
+
+.img {
+    position: relative;
+    float: left;
+    width:  100px;
+    height: 100px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
