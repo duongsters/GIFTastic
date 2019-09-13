@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=B612&display=swap" rel="stylesheet">
+
     <!-- link ref for the animated checkerboard background -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
-
-
-
+    <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -20,6 +20,7 @@
 <!-- created a 'mainContainer' class div to hold everything together  -->
 <div id="mainContainer">  
 <!-- Main Title Header -->
+<br>
     <h1>GIFTastic Mania!</h1>
     <br>
     <!-- This is where the preloaded button choices that are given on the browser -->
@@ -29,16 +30,21 @@
     <form id="giftastic-form">
     <!-- header size 4 was created to be the set of instructions for the user -->
             <h3>Instructions:</h3>
-            <h5>(1)Try clicking the red buttons to see gifs corresponded to the button label clicked!</h5>
-            <h5>(2)Input anything you want in the search bar and press SUBMIT to create a new button </h5>
+            <h5>(1) Try clicking the red buttons above to load set-ready gifs</h5>
+            <h5>(2) Input anything you want in the search bar and press SUBMIT to see GIFS to your likings!</h5>
     <!--created the ID 'searchBar-Input' to run as the search bar for what the user would input in dynamically, within the terms of user input being in form of text values, and create new buttons that would render the newly created gif choices  -->
-            <input id="searchBar-input" type="text">
+            <input id="searchBar-input" type="text" placeholder="Type here to gif-tif-fy!" style="width: 400px; text-align:center">
             <hr>
             <!-- submit button is created with the help of bootstrap -->
-            <input id="user-input" type="submit" value="SUBMIT" class="btn-success">
+            <input id="user-input" type="submit" value="SUBMIT" class="btn-success" >
         </form>
             <!-- Below the 'giftastic' form area is where the 10 gifs, '#gifs-appear-here' per search click is located and placed-->
-        <div id="gifs-appear-here"></div>
+        
+        <div class = "row">
+            <div class='col-xs-12.col-sm-12.col-md-12.col-lg-12'>
+            <div id="gifs-appear-here"></div>
+            </div>
+            </div>
 </div>
 
 
@@ -48,7 +54,9 @@
 <script type="text/javascript" src="javascript.js"></script>
 
 
-
+<nav class="navbar fixed-bottom navbar-light bg-light">
+        <a class="footer">Andrew Duong</a>
+      </nav>
     
     
     

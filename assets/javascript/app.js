@@ -64,7 +64,7 @@ $(document).ready(function(){
         $(document).on("click", ".newChoiceBtn", function(event){
             
             var userChoice = $(this).attr("data-name");
-            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userChoice + "&limit=10&api_key=" + apiKey;
+            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userChoice + "&limit=10" + "&api_key=" + apiKey;
          
             $.ajax({
                 url: queryURL,

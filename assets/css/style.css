@@ -1,34 +1,52 @@
-
-body{
-  
-
-    background: #70bcff;
-  
-}
 #mainContainer	{
-	width: 65%;
+	width: 100%;
 	margin: auto;
     text-align: center;
+    height: 100%;
 }
+
+
+body{
+    background: #70bcff;
+}
+
 
 #user-input.btn-success {
     position: relative;
 	padding: 10px 150px 10px 150px;
-    display: inline-block;
+    display: inherit;
 	border-radius: 20px;
     font-size: 50px;
     width: 40%;
-margin-left: 30%;
-margin-right: 30%;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 .btn-danger {
     border-radius:5px;
-    width:150px;
-  
-
+    margin-right: 5px;
 }
 
+h1 {
+    font-family: 'B612', sans-serif;
+}
+
+h3, h5 {
+    font-family: 'Chilanka', cursive;
+}
+
+
+#gifs-appear-here {
+
+    margin-top:10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-around;
+    margin-bottom: 50px;
+    
+}
 
 .img {
     position: relative;
@@ -38,4 +56,10 @@ margin-right: 30%;
     background-position: 50% 50%;
     background-repeat:   no-repeat;
     background-size:     cover;
+}
+
+
+.navbar {
+    text-align: center;
+    background: #70bcff
 }
